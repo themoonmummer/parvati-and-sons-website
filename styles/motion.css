@@ -1,0 +1,63 @@
+:root {
+  --navy: #112250;
+  --blue: #3C507D;
+  --burgundy: #6D1B2A;
+  --deep-red: #0A1B2E;
+  --black: #000000;
+}
+
+
+/* Cinematic easing */
+:root {
+  --ease-cinematic: cubic-bezier(
+    0.22,
+    1,
+    0.36,
+    1
+  );
+}
+
+
+/* Smooth reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition:
+    opacity 1.2s var(--ease-cinematic),
+    transform 1.2s var(--ease-cinematic);
+}
+
+
+.reveal.active {
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+/* Floating atmosphere */
+
+@keyframes ambientMove {
+
+0% {
+transform:translate3d(0,0,0);
+}
+
+50% {
+transform:translate3d(
+30px,
+-20px,
+0
+);
+}
+
+100% {
+transform:translate3d(0,0,0);
+}
+
+}
+
+
+.ambient {
+animation:
+ambientMove 18s infinite ease-in-out;
+}
