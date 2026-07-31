@@ -65,5 +65,20 @@ This project is optimized for zero-config deployment:
 - **Mobile View**: Fully optimized hamburger menu and stacked layouts.
 
 ---
+## 📸 Screenshots
 
-Made with ❤️ in Rudrapur by **Parvati And Sons**.
+### Home Page
+
+![Home Page](./screenshots/home.png)
+
+### About Section
+
+![About Section](./screenshots/about.png)
+
+### Services Section
+
+![Services Section](./screenshots/services.png)
+
+### Contact Section
+
+![Contact Section](./screenshots/contact.png)
