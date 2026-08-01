@@ -1,122 +1,581 @@
-import React from 'react';
-import { 
-  Code2, 
-  Globe, 
-  Cpu, 
-  BarChart3, 
-  Layers, 
-  Zap, 
-  ArrowUpRight 
-} from 'lucide-react';
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+import {
+  Smartphone,
+  Eye,
+  Globe,
+  Code2,
+  Cloud
+} from "lucide-react";
+
 
 const services = [
-  {
-    title: 'Custom Software Development',
-    description: 'Building scalable software solutions tailored to business needs.',
-    icon: <Code2 size={28} />,
-    gradient: 'from-blue-500 to-cyan-400'
-  },
-  {
-    title: 'Web Development',
-    description: 'Creating responsive and high-performance websites.',
-    icon: <Globe size={28} />,
-    gradient: 'from-purple-500 to-pink-400'
-  },
-  {
-    title: 'Digital Solutions',
-    description: 'Helping businesses transform with modern technology.',
-    icon: <Cpu size={28} />,
-    gradient: 'from-orange-400 to-red-500'
-  },
-  {
-    title: 'IT Consulting',
-    description: 'Providing strategic technology guidance for growth.',
-    icon: <BarChart3 size={28} />,
-    gradient: 'from-emerald-400 to-teal-500'
-  },
-  {
-    title: 'Product Development',
-    description: 'Developing innovative digital products.',
-    icon: <Layers size={28} />,
-    gradient: 'from-[#6D1B2A] to-[#8B2336]'
-  },
-  {
-    title: 'Business Automation',
-    description: 'Improving efficiency through smart automation.',
-    icon: <Zap size={28} />,
-    gradient: 'from-indigo-500 to-blue-600'
-  }
+
+{
+title:"Mobile App Development",
+subtitle:"Android & iOS Applications",
+description:
+"We design and develop smooth mobile experiences with modern interfaces and powerful performance.",
+points:[
+"Android and iOS solutions",
+"Clean user experience",
+"Offline functionality",
+"Fast performance"
+],
+icon:Smartphone,
+image:
+"https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c"
+},
+
+
+{
+title:"Industrial Vision AI",
+subtitle:"Custom YOLO Object Detection",
+description:
+"We build intelligent vision systems that help industries automate inspection, safety, and monitoring.",
+points:[
+"Custom AI models",
+"Object detection",
+"Quality inspection",
+"Safety monitoring"
+],
+icon:Eye,
+image:
+"https://images.unsplash.com/photo-1518770660439-4636190af475"
+},
+
+
+{
+title:"Web Applications",
+subtitle:"Websites & Business Platforms",
+description:
+"High-performance websites and digital platforms designed for speed and scalability.",
+points:[
+"E-commerce platforms",
+"Business dashboards",
+"Responsive design",
+"Optimized speed"
+],
+icon:Globe,
+image:
+"https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+},
+
+
+{
+title:"Custom Software",
+subtitle:"Enterprise Solutions",
+description:
+"Custom software systems built around your business processes and future growth.",
+points:[
+"Business automation",
+"Secure systems",
+"Custom platforms",
+"Future ready systems"
+],
+icon:Code2,
+image:
+"https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+},
+
+
+{
+title:"Cloud & Automation",
+subtitle:"Digital Infrastructure",
+description:
+"Reliable cloud solutions and automation systems that improve efficiency.",
+points:[
+"Cloud deployment",
+"Workflow automation",
+"Secure infrastructure",
+"Consulting"
+],
+icon:Cloud,
+image:
+"https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+}
+
 ];
 
-const Services = () => {
-  return (
-    <section id="services" className="relative py-24 bg-gray-50 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#6D1B2A]/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#112250]/5 rounded-full blur-3xl"></div>
-      </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-[#6D1B2A] font-bold tracking-[0.2em] uppercase text-sm mb-4">Expertise</h2>
-          <p className="text-4xl md:text-5xl font-black text-[#112250] mb-6">Our Services</p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-[#6D1B2A] to-[#3C507D] mx-auto rounded-full"></div>
-          <p className="mt-8 text-gray-500 max-w-2xl mx-auto text-lg">
-            Empowering your digital journey with cutting-edge technology and strategic innovation.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group relative p-0.5 rounded-3xl transition-all duration-500 hover:scale-[1.02]"
-            >
-              {/* Gradient Border Backdrop */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500 shadow-xl`}></div>
-              
-              {/* Card Content - Glassmorphism */}
-              <div className="relative h-full bg-white/80 backdrop-blur-xl p-8 rounded-[1.4rem] border border-gray-100 flex flex-col group-hover:bg-white/90 transition-colors">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center text-white mb-6 shadow-lg transform group-hover:rotate-6 transition-transform duration-300`}>
-                  {service.icon}
-                </div>
-                
-                <h3 className="text-xl font-bold text-[#112250] mb-4 group-hover:text-[#6D1B2A] transition-colors">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed mb-8 flex-grow">
-                  {service.description}
-                </p>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-[#112250]/40 uppercase tracking-widest group-hover:text-[#6D1B2A] transition-colors">
-                    Explore
-                  </span>
-                  <div className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-[#112250] group-hover:bg-[#6D1B2A] group-hover:text-white group-hover:border-transparent transition-all duration-300">
-                    <ArrowUpRight size={20} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Bottom CTA for Services */}
-        <div className="mt-20 text-center">
-          <p className="text-gray-500 mb-6 italic">Need a specialized solution not listed here?</p>
-          <a 
-            href="#contact" 
-            className="inline-flex items-center space-x-2 text-[#6D1B2A] font-bold hover:underline group"
-          >
-            <span>Talk to our experts</span>
-            <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
+export default function Services(){
 
-export default Services;
+const [active,setActive]=useState(0);
+
+
+
+useEffect(()=>{
+
+const timer=setInterval(()=>{
+
+setActive(prev=>
+(prev+1)%services.length
+);
+
+},5500);
+
+
+return ()=>clearInterval(timer);
+
+},[]);
+
+
+
+const current=services[active];
+
+const next=
+services[(active+1)%services.length];
+
+
+
+return (
+
+<section
+id="services"
+className="
+relative
+min-h-screen
+overflow-hidden
+py-28
+flex
+items-center
+"
+>
+
+
+{/* BACKGROUND */}
+
+<AnimatePresence mode="wait">
+
+<motion.div
+
+key={current.image}
+
+initial={{
+opacity:0,
+scale:1.15
+}}
+
+animate={{
+opacity:1,
+scale:1
+}}
+
+exit={{
+opacity:0
+}}
+
+transition={{
+duration:1.4,
+ease:"easeOut"
+}}
+
+className="
+absolute
+inset-0
+bg-cover
+bg-center
+"
+
+style={{
+backgroundImage:`url(${current.image})`
+}}
+
+/>
+
+
+</AnimatePresence>
+
+
+
+
+{/* IMAGE COLOR TREATMENT */}
+
+<div
+className="
+absolute
+inset-0
+bg-[#020617]/55
+backdrop-blur-[2px]
+"
+/>
+
+
+<div
+className="
+absolute
+inset-0
+bg-gradient-to-r
+from-[#020617]/90
+via-[#07142F]/60
+to-[#112250]/30
+"
+/>
+
+
+
+<div
+className="
+absolute
+bottom-0
+left-1/2
+-translate-x-1/2
+w-[600px]
+h-[250px]
+bg-blue-500/20
+blur-[140px]
+"
+/>
+
+
+
+
+
+<div
+className="
+relative
+z-10
+max-w-7xl
+mx-auto
+w-full
+px-6
+grid
+lg:grid-cols-2
+gap-16
+items-center
+"
+>
+
+
+
+{/* TEXT */}
+
+<div>
+
+
+<p
+className="
+text-blue-300
+uppercase
+tracking-[0.35em]
+text-sm
+mb-6
+"
+>
+Services
+</p>
+
+
+
+<AnimatePresence mode="wait">
+
+
+<motion.div
+
+key={current.title}
+
+initial={{
+opacity:0,
+y:25,
+filter:"blur(15px)"
+}}
+
+animate={{
+opacity:1,
+y:0,
+filter:"blur(0)"
+}}
+
+exit={{
+opacity:0,
+y:-25,
+filter:"blur(15px)"
+}}
+
+transition={{
+duration:.7
+}}
+
+>
+
+
+<h2
+className="
+text-4xl
+md:text-5xl
+font-semibold
+text-[#E8EEFF]
+"
+>
+{current.title}
+</h2>
+
+
+
+<h3
+className="
+mt-5
+text-xl
+text-blue-200
+"
+>
+{current.subtitle}
+</h3>
+
+
+
+<p
+className="
+mt-8
+text-[#B8C7E6]
+leading-relaxed
+max-w-xl
+"
+>
+{current.description}
+</p>
+
+
+
+<ul
+className="
+mt-8
+space-y-4
+"
+>
+
+{
+current.points.map(point=>(
+
+<li
+key={point}
+className="
+flex
+items-center
+gap-3
+text-white
+"
+>
+
+<span
+className="
+w-2
+h-2
+rounded-full
+bg-blue-400
+"
+/>
+
+{point}
+
+</li>
+
+))
+}
+
+</ul>
+
+
+</motion.div>
+
+</AnimatePresence>
+
+
+</div>
+
+
+
+
+
+
+{/* CARDS */}
+
+<div
+className="
+relative
+h-[520px]
+flex
+items-center
+"
+>
+
+
+<AnimatePresence mode="popLayout">
+
+
+<motion.div
+
+key={current.title}
+
+initial={{
+x:150,
+opacity:0
+}}
+
+animate={{
+x:0,
+opacity:1
+}}
+
+exit={{
+x:-150,
+opacity:0,
+filter:"blur(20px)"
+}}
+
+transition={{
+duration:.85,
+ease:[0.22,1,0.36,1]
+}}
+
+className="
+absolute
+left-0
+w-[340px]
+h-[480px]
+bg-white/[0.16]
+backdrop-blur-xl
+border
+border-white/25
+shadow-[0_40px_100px_rgba(37,99,235,.45)]
+"
+>
+
+
+<ServiceCard service={current}/>
+
+
+</motion.div>
+
+
+
+
+
+<motion.div
+
+key={next.title}
+
+initial={{
+x:620,
+opacity:0
+}}
+
+animate={{
+x:400,
+opacity:.65
+}}
+
+transition={{
+duration:.85
+}}
+
+className="
+absolute
+left-0
+w-[290px]
+h-[420px]
+bg-white/[0.12]
+backdrop-blur-lg
+border
+border-white/20
+shadow-[0_30px_80px_rgba(37,99,235,.2)]
+"
+>
+
+
+<ServiceCard service={next}/>
+
+
+</motion.div>
+
+
+
+</AnimatePresence>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+);
+
+}
+
+
+
+
+
+function ServiceCard({service}){
+
+const Icon=service.icon;
+
+
+return (
+
+<div
+className="
+p-10
+h-full
+text-white
+"
+>
+
+
+<div
+className="
+w-16
+h-16
+bg-blue-400/20
+border
+border-blue-300/30
+flex
+items-center
+justify-center
+mb-10
+shadow-[0_0_40px_rgba(96,165,250,.25)]
+"
+>
+
+<Icon
+size={32}
+className="text-blue-200"
+/>
+
+</div>
+
+
+
+<h3
+className="
+text-2xl
+font-semibold
+"
+>
+{service.title}
+</h3>
+
+
+
+<p
+className="
+mt-4
+text-blue-200
+"
+>
+{service.subtitle}
+</p>
+
+
+
+</div>
+
+)
+
+}

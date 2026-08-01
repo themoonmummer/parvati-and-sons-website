@@ -1,115 +1,382 @@
-import React from 'react';
-import { Award, Users, CheckCircle, TrendingUp, Lightbulb } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  BriefcaseBusiness,
+  Users,
+  Award,
+  Headphones,
+} from "lucide-react";
+
+import CodeBackground from "./hero/CodeBackground";
+
+const stats = [
+  {
+    value: "120+",
+    title: "Projects Delivered",
+    icon: BriefcaseBusiness,
+  },
+  {
+    value: "80+",
+    title: "Happy Clients",
+    icon: Users,
+  },
+  {
+    value: "7+",
+    title: "Years of Experience",
+    icon: Award,
+  },
+  {
+    value: "24/7",
+    title: "Technical Support",
+    icon: Headphones,
+  },
+];
 
 const About = () => {
-  const stats = [
-    {
-      label: 'Years of Experience',
-      value: '10+',
-      icon: <Award className="text-[#6D1B2A]" size={24} />,
-      description: 'Decades of collective IT expertise.'
-    },
-    {
-      label: 'Dedicated Team',
-      value: 'Expert',
-      icon: <Users className="text-[#3C507D]" size={24} />,
-      description: 'Highly educated professionals.'
-    },
-    {
-      label: 'Quality Solutions',
-      value: 'Top-Tier',
-      icon: <CheckCircle className="text-green-600" size={24} />,
-      description: 'Commitment to excellence.'
-    },
-    {
-      label: 'Business Growth Focus',
-      value: 'Proven',
-      icon: <TrendingUp className="text-[#6D1B2A]" size={24} />,
-      description: 'Scaling through technology.'
-    }
-  ];
-
   return (
-    <section id="about" className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left Side: Company Story */}
-          <div className="animate-fade-in-up">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#6D1B2A]/5 border border-[#6D1B2A]/10 text-[#6D1B2A] text-xs font-bold uppercase tracking-widest mb-6">
-              <Lightbulb size={14} />
-              <span>Our Legacy</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-black text-[#112250] mb-8 leading-tight">
-              Driving Innovation Through <br />
-              <span className="text-[#6D1B2A]">Experience & Dedication</span>
-            </h2>
-            
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-              <p>
-                Parvati And Sons has years of experience in the IT sector. Our approach is focused on creating services and products that help businesses achieve growth through technology.
-              </p>
-              <p>
-                We have a highly educated and dedicated team committed to delivering quality solutions. Helping people and businesses succeed through technology is our responsibility and pride.
-              </p>
-            </div>
+    <section
+      id="about"
+      className="relative overflow-hidden py-28"
+    >
+      {/* Same Environment as Hero */}
 
-            {/* Statistics Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className="p-6 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl hover:border-[#6D1B2A]/10 transition-all duration-300 group"
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(ellipse_at_center,#112250_0%,#07142F_45%,#020617_78%,#000000_100%)]
+        "
+      />
+
+      {/* Ambient Lights */}
+
+      <div
+        className="
+          absolute
+          -top-60
+          right-[-180px]
+          w-[900px]
+          h-[900px]
+          rounded-full
+          bg-[#3C507D]
+          opacity-15
+          blur-[220px]
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -bottom-72
+          left-[-220px]
+          w-[850px]
+          h-[850px]
+          rounded-full
+          bg-[#112250]
+          opacity-20
+          blur-[220px]
+        "
+      />
+
+      {/* Code Background */}
+
+      <CodeBackground />
+
+      <div
+        className="
+          relative
+          z-10
+          max-w-7xl
+          mx-auto
+          px-6
+        "
+      >
+
+        {/* Heading */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 35,
+            filter: "blur(15px)",
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.9,
+          }}
+          className="
+            max-w-4xl
+            mx-auto
+            text-center
+          "
+        >
+          <p
+            className="
+              uppercase
+              tracking-[0.45em]
+              text-xs
+              text-[#8FAFFF]/70
+              mb-6
+            "
+          >
+            ABOUT PARVATI & SONS
+          </p>
+
+          <h2
+            className="
+              text-[#E8EEFF]
+              text-4xl
+              md:text-5xl
+              lg:text-6xl
+              font-bold
+              leading-tight
+            "
+          >
+            Engineering{" "}
+
+            <span
+              className="
+                text-transparent
+                bg-clip-text
+                bg-gradient-to-r
+                from-[#E8EEFF]
+                via-[#8FAFFF]
+                to-[#3C507D]
+              "
+            >
+              Digital Solutions
+            </span>
+
+            <br />
+
+            That Move Businesses Forward.
+          </h2>
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{ once: true }}
+            transition={{
+              delay: 0.2,
+              duration: 0.8,
+            }}
+            className="
+              mt-8
+              max-w-3xl
+              mx-auto
+              space-y-6
+              text-[#B8C7E6]/80
+              text-base
+              md:text-lg
+              leading-8
+            "
+          >
+            <p>
+              At Parvati & Sons, we build modern websites,
+              enterprise software, mobile applications,
+              e-commerce platforms, and AI-powered
+              solutions that help businesses innovate,
+              automate, and grow with confidence.
+            </p>
+
+            <p>
+              Every solution is designed with performance,
+              scalability, and long-term value in mind.
+              By combining thoughtful design with reliable
+              engineering, we create digital experiences
+              that businesses can depend on today and
+              tomorrow.
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Stats */}
+
+        <div
+          className="
+            mt-20
+            grid
+            grid-cols-2
+            lg:grid-cols-4
+            gap-6
+          "
+        >
+          {stats.map((stat, index) => {
+
+            const Icon = stat.icon;
+
+            return (
+
+              <motion.div
+
+                key={stat.title}
+
+                initial={{
+                  opacity: 0,
+                  y: 35,
+                  filter: "blur(10px)",
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                }}
+
+                viewport={{
+                  once: true,
+                }}
+
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.12,
+                }}
+
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
+
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-3xl
+                  border
+                  border-white/10
+                  bg-white/[0.05]
+                  backdrop-blur-xl
+                  p-6
+                  md:p-7
+                  transition-all
+                  duration-500
+                  hover:border-[#8FAFFF]/30
+                  hover:bg-white/[0.08]
+                "
+
+              >
+
+                {/* Card Glow */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-500
+                    bg-gradient-to-br
+                    from-[#8FAFFF]/10
+                    via-transparent
+                    to-[#112250]/20
+                  "
+                />
+
+
+                <div
+                  className="
+                    relative
+                    z-10
+                  "
                 >
-                  <div className="flex items-center space-x-4 mb-3">
-                    <div className="p-2 rounded-lg bg-white shadow-sm group-hover:scale-110 transition-transform">
-                      {stat.icon}
-                    </div>
-                    <span className="text-2xl font-black text-[#112250]">{stat.value}</span>
-                  </div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-1">{stat.label}</h4>
-                  <p className="text-xs text-gray-500">{stat.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Right Side: Modern Technology Illustration Placeholder */}
-          <div className="relative lg:ml-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-              <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" 
-                alt="Modern Technology and Engineering" 
-                className="w-full h-full object-cover aspect-square md:aspect-auto md:h-[600px]"
-              />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#112250]/40 to-transparent"></div>
-              
-              {/* Floating Element */}
-              <div className="absolute bottom-8 left-8 right-8 glass-card p-6 rounded-2xl border border-white/20 backdrop-blur-md animate-float">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-[#6D1B2A] flex items-center justify-center text-white shrink-0">
-                    <CheckCircle size={24} />
-                  </div>
-                  <div>
-                    <p className="text-white font-bold text-lg">Quality Assured</p>
-                    <p className="text-white/80 text-sm">Certified IT Excellence</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  <div
+                    className="
+                      w-12
+                      h-12
+                      rounded-xl
+                      flex
+                      items-center
+                      justify-center
+                      bg-[#112250]/70
+                      border
+                      border-[#8FAFFF]/20
+                      mb-6
+                    "
+                  >
 
-            {/* Decorative background shapes */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#6D1B2A]/10 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#3C507D]/10 rounded-full blur-3xl -z-10 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-          </div>
+                    <Icon
+                      size={22}
+                      className="
+                        text-[#8FAFFF]
+                      "
+                    />
+
+                  </div>
+
+
+                  <h3
+                    className="
+                      text-3xl
+                      md:text-4xl
+                      font-bold
+                      text-[#E8EEFF]
+                      mb-2
+                    "
+                  >
+
+                    {stat.value}
+
+                  </h3>
+
+
+                  <p
+                    className="
+                      text-sm
+                      text-[#B8C7E6]/70
+                      leading-relaxed
+                    "
+                  >
+
+                    {stat.title}
+
+                  </p>
+
+
+                </div>
+
+
+              </motion.div>
+
+            );
+
+          })}
 
         </div>
       </div>
+
+
+      {/* Bottom Decorative Glow */}
+
+      <div
+        className="
+          absolute
+          bottom-0
+          left-1/2
+          -translate-x-1/2
+          w-[500px]
+          h-[200px]
+          bg-[#3C507D]/10
+          blur-[120px]
+          rounded-full
+        "
+      />
+
     </section>
   );
 };
+
 
 export default About;
