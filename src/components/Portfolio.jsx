@@ -89,7 +89,6 @@ icon:HeartPulse,
 image:
 "https://images.unsplash.com/photo-1586773860418-d37222d8fce3"
 },
-
 {
 title:"Prodonto Dental",
 category:"Healthcare Software",
@@ -106,7 +105,7 @@ tags:[
 ],
 icon:Stethoscope,
 image:
-"https://images.unsplash.com/photo-1606811971618-4486d14f3f99"
+"https://images.unsplash.com/photo-1559757175-0eb30cd8c063"
 }
 
 

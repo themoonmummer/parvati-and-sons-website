@@ -2,116 +2,373 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
+
   :root {
-    --primary: #6D1B2A;
-    --primary-hover: #8B2336;
-    --secondary: #112250;
-    --bg-dark: #05061B;
+
+    --bg-primary: #020617;
+    --bg-secondary: #07142F;
+
+    --surface: #112250;
+    --accent: #3C507D;
+
+    --text-primary: #E8EEFF;
+    --text-secondary: #B8C7E6;
+    --text-muted: #8FAFFF;
+
   }
+
+
 
   html {
+
     scroll-behavior: smooth;
+
     -webkit-tap-highlight-color: transparent;
+
+    background: #020617;
+
   }
-  
+
+
+
   body {
-    @apply bg-white text-[#112250] transition-colors duration-300 antialiased selection:bg-[#6D1B2A]/30;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+    @apply antialiased;
+
+    background: #020617;
+
+    color: #E8EEFF;
+
+    font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
     text-rendering: optimizeLegibility;
+
   }
 
-  .dark body {
-    @apply bg-[#05061B] text-gray-100;
-  }
 
-  /* Improve focus states for keyboard navigation */
-  :focus-visible {
-    @apply outline-none ring-2 ring-[#6D1B2A] ring-offset-2 dark:ring-offset-[#05061B];
+
+  ::selection {
+
+    background: rgba(60,80,125,0.45);
+
+    color:white;
+
   }
+:focus-visible {
+
+  outline: 2px solid #8FAFFF;
+
+  outline-offset: 3px;
+
 }
 
-/* Refined Animations */
-@keyframes reveal {
+}
+
+
+
+/* =========================
+   Premium Motion Utilities
+========================= */
+
+
+@keyframes fade-up {
+
   from {
-    opacity: 0;
-    transform: translateY(20px);
+
+    opacity:0;
+
+    transform:translateY(25px);
+
   }
+
+
   to {
-    opacity: 1;
-    transform: translateY(0);
+
+    opacity:1;
+
+    transform:translateY(0);
+
   }
+
 }
 
-.reveal {
-  animation: reveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+
+.animate-fade-up {
+
+  animation:
+    fade-up
+    0.8s
+    cubic-bezier(.22,1,.36,1)
+    forwards;
+
 }
 
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+
+
+
+
+@keyframes float-soft {
+
+  0%,
   100% {
-    opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
+
   }
+
+
+  50% {
+
+    transform:
+      translateY(-12px);
+
+  }
+
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(1deg); }
+
+
+.animate-float-soft {
+
+  animation:
+    float-soft
+    6s
+    ease-in-out
+    infinite;
+
 }
 
-@keyframes pulse-slow {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.05); }
+
+
+
+
+
+@keyframes glow-pulse {
+
+
+  0%,
+  100% {
+
+    opacity:.35;
+
+  }
+
+
+  50% {
+
+    opacity:.65;
+
+  }
+
+
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+
+.animate-glow {
+
+  animation:
+    glow-pulse
+    5s
+    ease-in-out
+    infinite;
+
 }
 
-.animate-float {
-  animation: float 5s ease-in-out infinite;
+
+
+
+
+/* =========================
+   P&S Glass System
+========================= */
+
+
+.glass {
+
+  background:
+
+    rgba(255,255,255,0.045);
+
+
+  backdrop-filter:
+
+    blur(22px);
+
+
+  -webkit-backdrop-filter:
+
+    blur(22px);
+
+
+  border:
+
+    1px solid
+
+    rgba(255,255,255,0.10);
+
+
+  box-shadow:
+
+    0 25px 60px
+
+    rgba(0,0,0,0.35);
+
 }
 
-.animate-pulse-slow {
-  animation: pulse-slow 8s ease-in-out infinite;
+
+
+
+.glass-dark {
+
+  background:
+
+    rgba(7,20,47,0.65);
+
+
+  backdrop-filter:
+
+    blur(24px);
+
+
+  -webkit-backdrop-filter:
+
+    blur(24px);
+
+
+  border:
+
+    1px solid
+
+    rgba(143,175,255,0.12);
+
 }
 
-/* Glassmorphism Refinement */
-.glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+
+
+
+
+
+
+/* =========================
+   Soft Blue Glow
+========================= */
+
+
+.blue-glow {
+
+  box-shadow:
+
+    0 0 35px
+
+    rgba(143,175,255,0.25);
+
 }
 
-.dark .glass-card {
-  background: rgba(10, 11, 46, 0.4);
-  border-color: rgba(255, 255, 255, 0.05);
+
+
+.button-glow {
+
+  box-shadow:
+
+    0 0 25px
+
+    rgba(60,80,125,0.45);
+
+  transition:
+
+    box-shadow .3s ease;
+
 }
 
-/* Custom Scrollbar */
+
+
+.button-glow:hover {
+
+  box-shadow:
+
+    0 0 45px
+
+    rgba(143,175,255,0.45);
+
+}
+
+
+
+
+
+
+
+/* =========================
+   Scrollbar
+========================= */
+
+
 ::-webkit-scrollbar {
-  width: 8px;
+
+  width:8px;
+
 }
+
+
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-[#05061B];
+
+  background:#020617;
+
 }
+
+
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-800 rounded-full hover:bg-[#6D1B2A] transition-colors;
+
+  background:#112250;
+
+  border-radius:999px;
+
 }
 
-/* Accessibility: Hide scrollbar for specific containers */
-.hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+
+::-webkit-scrollbar-thumb:hover {
+
+  background:#3C507D;
+
 }
+
+
+
+
+
+
+
+/* =========================
+   Utility
+========================= */
+
+
+.hide-scrollbar {
+
+  -ms-overflow-style:none;
+
+  scrollbar-width:none;
+
+}
+
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+
+  display:none;
+
 }

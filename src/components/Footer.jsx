@@ -1,141 +1,553 @@
-import React from 'react';
-import { Mail, Phone, MapPin, ArrowUpRight,Heart } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import React from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUpRight,
+  Heart
+} from "lucide-react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter
+} from "react-icons/fa";
+import { motion } from "framer-motion";
 
 
 const Footer = () => {
+
   const currentYear = new Date().getFullYear();
 
+
   const footerLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' }
+    { name:"Home", href:"#home" },
+    { name:"About", href:"#about" },
+    { name:"Services", href:"#services" },
+    { name:"Portfolio", href:"#portfolio" },
+    { name:"Contact", href:"#contact" }
   ];
+
 
   const socialLinks = [
-    { icon: <FaLinkedin size={20} />, href: '#', label: 'LinkedIn' },
-    { icon: <FaTwitter size={20} />, href: '#', label: 'Twitter' },
-    { icon: <FaGithub size={20} />, href: '#', label: 'GitHub' }
+    {
+      icon:<FaLinkedin size={18}/>,
+      label:"LinkedIn"
+    },
+    {
+      icon:<FaTwitter size={18}/>,
+      label:"Twitter"
+    },
+    {
+      icon:<FaGithub size={18}/>,
+      label:"Github"
+    }
   ];
 
+
+
   return (
-    <footer className="bg-gray-50 dark:bg-[#0A0B2E] transition-colors duration-300 pt-24 pb-12 border-t border-gray-200 dark:border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          
-          {/* Company Info */}
-          <div className="col-span-1 lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <span className="text-2xl font-black tracking-tighter text-[#112250] dark:text-white">
-                PARVATI<span className="text-[#6D1B2A]">AND</span>SONS
-              </span>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-xs">
-              Developing next-generation services and technology solutions for business growth. Based in Rudrapur, serving global enterprises.
-            </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, idx) => (
-                <a 
-                  key={idx}
-                  href={social.href}
-                  className="w-11 h-11 rounded-xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-white hover:bg-[#6D1B2A] hover:border-[#6D1B2A] transition-all duration-300 shadow-sm"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-          
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-[#112250] dark:text-white font-bold text-lg mb-8 relative inline-block">
-              Quick Links
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#6D1B2A] rounded-full"></span>
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href} 
-                    className="text-gray-600 dark:text-gray-400 hover:text-[#6D1B2A] dark:hover:text-white flex items-center group transition-colors"
-                  >
-                    <ArrowUpRight size={14} className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-[#112250] dark:text-white font-bold text-lg mb-8 relative inline-block">
-              Contact Us
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#6D1B2A] rounded-full"></span>
-            </h4>
-            <ul className="space-y-5">
-              <li className="flex items-start space-x-3 text-gray-600 dark:text-gray-400">
-                <MapPin size={20} className="text-[#6D1B2A] shrink-0 mt-1" />
-                <span>Rudrapur, Uttarakhand, India - 263153</span>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-600 dark:text-gray-400">
-                <Mail size={20} className="text-[#6D1B2A] shrink-0" />
-                <a href="mailto:hello@parvatiandsons.com" className="hover:text-[#6D1B2A] transition-colors">hello@parvatiandsons.com</a>
-              </li>
-              <li className="flex items-center space-x-3 text-gray-600 dark:text-gray-400">
-                <Phone size={20} className="text-[#6D1B2A] shrink-0" />
-                <span>+91 (594) 400-0000</span>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Newsletter / CTA */}
-          <div>
-            <h4 className="text-[#112250] dark:text-white font-bold text-lg mb-8 relative inline-block">
-              Newsletter
-              <span className="absolute -bottom-2 left-0 w-8 h-1 bg-[#6D1B2A] rounded-full"></span>
-            </h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Subscribe to get the latest tech insights.</p>
-            <form className="relative">
-              <input 
-                type="email" 
-                placeholder="Email address"
-                className="w-full px-4 py-3 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white outline-none focus:border-[#6D1B2A] transition-all"
-              />
-              <button 
-                type="submit"
-                className="mt-3 w-full bg-[#6D1B2A] text-white py-3 rounded-xl font-bold hover:bg-[#8B2336] transition-all shadow-lg shadow-[#6D1B2A]/20"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-        
-        {/* Bottom Bar */}
-        <div className="pt-10 border-t border-gray-200 dark:border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-sm text-gray-500 dark:text-gray-500">
-            <div className="flex flex-col md:flex-row items-center md:space-x-6 space-y-2 md:space-y-0">
-              <p>© {currentYear} Parvati & Sons. All rights reserved.</p>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-[#6D1B2A] transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-[#6D1B2A] transition-colors">Terms of Service</a>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-1">
-              <span>Made with</span>
-              <Heart size={14} className="text-[#6D1B2A] fill-current" />
-              <span>in Rudrapur</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+<footer
+className="
+relative
+overflow-hidden
+bg-[#020617]
+pt-20
+pb-10
+border-t
+border-white/10
+"
+>
+
+
+{/* background glow */}
+
+<div
+className="
+absolute
+bottom-0
+left-1/2
+-translate-x-1/2
+w-[600px]
+h-[250px]
+bg-[#112250]
+opacity-40
+blur-[130px]
+rounded-full
+"
+/>
+
+
+
+<div
+className="
+relative
+z-10
+max-w-7xl
+mx-auto
+px-6
+"
+>
+
+
+
+<div
+className="
+grid
+grid-cols-1
+md:grid-cols-2
+lg:grid-cols-4
+gap-10
+mb-16
+"
+>
+
+
+
+{/* Brand */}
+
+
+<motion.div
+
+initial={{opacity:0,y:20}}
+whileInView={{opacity:1,y:0}}
+viewport={{once:true}}
+
+>
+
+
+<h3
+className="
+text-2xl
+font-semibold
+tracking-tight
+text-[#E8EEFF]
+mb-5
+"
+>
+
+PARVATI
+<span className="text-[#8FAFFF]">
+AND
+</span>
+SONS
+
+</h3>
+
+
+<p
+className="
+text-sm
+leading-relaxed
+text-[#B8C7E6]
+max-w-xs
+"
+>
+Building modern digital solutions through
+technology, innovation, and reliable engineering.
+</p>
+
+
+
+<div
+className="
+flex
+gap-3
+mt-7
+"
+>
+
+
+{
+socialLinks.map((social,index)=>(
+
+<a
+key={index}
+href="#"
+aria-label={social.label}
+className="
+w-10
+h-10
+rounded-xl
+border
+border-white/10
+bg-white/[0.04]
+flex
+items-center
+justify-center
+text-[#B8C7E6]
+hover:text-white
+hover:border-[#8FAFFF]/40
+hover:bg-[#112250]
+transition-all
+"
+>
+
+{social.icon}
+
+</a>
+
+))
+}
+
+
+</div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+{/* Links */}
+
+
+<div>
+
+
+<h4
+className="
+text-sm
+uppercase
+tracking-wider
+text-[#E8EEFF]
+font-medium
+mb-6
+"
+>
+Navigation
+</h4>
+
+
+<ul className="space-y-4">
+
+
+{
+footerLinks.map(link=>(
+
+<li key={link.name}>
+
+<a
+href={link.href}
+className="
+group
+flex
+items-center
+gap-2
+text-sm
+text-[#B8C7E6]
+hover:text-[#8FAFFF]
+transition
+"
+>
+
+<ArrowUpRight
+size={13}
+className="
+opacity-0
+group-hover:opacity-100
+transition
+"
+/>
+
+{link.name}
+
+</a>
+
+</li>
+
+))
+}
+
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+{/* Contact */}
+
+
+<div>
+
+
+<h4
+className="
+text-sm
+uppercase
+tracking-wider
+text-[#E8EEFF]
+font-medium
+mb-6
+"
+>
+Contact
+</h4>
+
+
+<div
+className="
+space-y-5
+text-sm
+text-[#B8C7E6]
+"
+>
+
+
+<div
+className="
+flex
+gap-3
+"
+>
+
+<MapPin
+size={18}
+className="text-[#8FAFFF] shrink-0"
+/>
+
+<span>
+Rudrapur, Haldwani,
+<br/>
+Uttarakhand - 263153
+</span>
+
+</div>
+
+
+
+<div
+className="
+flex
+gap-3
+items-center
+"
+>
+
+<Mail
+size={18}
+className="text-[#8FAFFF]"
+/>
+
+<span>
+info@parvatiandsons.com
+</span>
+
+</div>
+
+
+
+
+<div
+className="
+flex
+gap-3
+items-center
+"
+>
+
+<Phone
+size={18}
+className="text-[#8FAFFF]"
+/>
+
+<span>
+9368321402
+</span>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+{/* CTA */}
+
+
+<div>
+
+
+<h4
+className="
+text-sm
+uppercase
+tracking-wider
+text-[#E8EEFF]
+font-medium
+mb-6
+"
+>
+Stay Connected
+</h4>
+
+
+<p
+className="
+text-sm
+text-[#B8C7E6]
+mb-5
+"
+>
+Receive technology insights and updates.
+</p>
+
+
+
+<div
+className="
+rounded-2xl
+border
+border-white/10
+bg-white/[0.04]
+backdrop-blur-xl
+p-4
+"
+>
+
+
+<input
+type="email"
+placeholder="Email address"
+className="
+w-full
+bg-transparent
+text-white
+text-sm
+outline-none
+placeholder:text-[#6F80A5]
+mb-4
+"
+/>
+
+
+
+<button
+className="
+relative
+overflow-hidden
+w-full
+py-3
+rounded-xl
+bg-[#3C507D]
+text-white
+text-sm
+font-medium
+transition-all
+shadow-[0_0_25px_rgba(60,80,125,0.45)]
+hover:shadow-[0_0_40px_rgba(143,175,255,0.45)]
+hover:bg-[#50658F]
+"
+>
+
+Subscribe
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+{/* Bottom */}
+
+
+<div
+className="
+pt-8
+border-t
+border-white/10
+flex
+flex-col
+md:flex-row
+justify-between
+items-center
+gap-5
+text-xs
+text-[#6F80A5]
+"
+>
+
+
+<p>
+© {currentYear} Parvati & Sons. All rights reserved.
+</p>
+
+
+
+<div
+className="
+flex
+items-center
+gap-2
+"
+>
+
+<span>
+Made with
+</span>
+
+
+<Heart
+size={14}
+className="
+text-[#8FAFFF]
+fill-current
+"
+/>
+
+
+<span>
+in Rudrapur
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</footer>
+
   );
+
 };
+
 
 export default Footer;
