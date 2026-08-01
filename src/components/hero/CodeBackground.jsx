@@ -21,12 +21,12 @@ const codeLines = [
 const layers = [
   {
     speed: 25,
-    opacity: 0.08,
+    opacity: 0.05,
     size: "text-sm",
   },
   {
     speed: 40,
-    opacity: 0.12,
+    opacity: 0.08,
     size: "text-base",
   },
   {

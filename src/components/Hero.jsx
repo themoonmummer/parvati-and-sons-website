@@ -108,7 +108,7 @@ const Hero = () => {
 
         transition={{
 
-          delay:5.35,
+          delay:5,
 
           duration:2.8,
 
@@ -437,28 +437,6 @@ const Hero = () => {
 
 
       </motion.div>
-
-
-
-
-      <div
-        className="
-          absolute
-          bottom-10
-          left-1/2
-          -translate-x-1/2
-          text-blue-200/50
-          text-xs
-          tracking-[0.5em]
-        "
-      >
-
-        SCROLL
-
-      </div>
-
-
-
     </section>
 
   );
